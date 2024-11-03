@@ -189,95 +189,66 @@ footer {
 
 /* Responsive styles for smaller screens */
 @media (max-width: 768px) {
-  /* Navigation */
-  nav {
-    flex-direction: column;
-    text-align: center;
-  }
+    .navbar {
+        flex-direction: column; /* Stack items vertically on mobile */
+        align-items: center; /* Center align items */
+    }
 
-  .nav-links {
-    flex-direction: column;
-    gap: 10px;
-  }
+    .hero-section {
+        height: 250px; /* Smaller height for mobile */
+    }
 
-  /* Hero Section */
-  #hero {
-    height: 60vh;
-  }
+    .field-logos {
+        padding: 20px; /* Less padding on mobile */
+    }
 
-  .hero-button {
-    font-size: 1em;
-  }
+    .field-logo {
+        width: 120px; /* Smaller width for logos */
+    }
 
-  /* Field Logos */
-  .field-logos {
-    flex-direction: column;
-    align-items: center;
-  }
+    .timer-section {
+        padding: 20px; /* Less padding */
+        font-size: 18px; /* Adjust font size for mobile */
+    }
 
-  .field-logo {
-    width: 120px;
-    height: 120px;
-  }
+    .contacts-newsletter {
+        flex-direction: column; /* Stack on mobile */
+        align-items: center; /* Center align */
+    }
 
-  /* Timer Section */
-  .timer-section {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
+    .contact-info {
+        flex-direction: column; /* Stack logo and text vertically */
+        align-items: center; /* Center align */
+        margin-bottom: 20px; /* Space below */
+    }
 
-  /* Sponsors */
-  .sponsor-container {
-    flex-direction: column;
-    align-items: center;
-  }
+    .company-logo {
+        width: 60px; /* Smaller logo size */
+        height: 60px; /* Smaller logo size */
+        margin-bottom: 10px; /* Space below logo */
+    }
 
-  /* Contact & Newsletter Section */
-  .contact-newsletter {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+    .newsletter {
+        width: 100%; /* Full width for newsletter */
+        text-align: center; /* Center text */
+    }
 
-  .newsletter input {
-    margin-bottom: 10px;
-    width: 80%;
-  }
-
-  .contact-info {
-    margin-top: 20px;
-  }
-
-  /* Footer */
-  footer {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
+    .newsletter input {
+        width: 80%; /* Adjust input width for mobile */
+    }
 }
 
 @media (max-width: 480px) {
-  /* Further adjustments for very small screens */
-  .hero-button {
-    padding: 8px 16px;
-    font-size: 0.9em;
-  }
+    .timer-info {
+        font-size: 16px; /* Further decrease font size */
+    }
 
-  .field-logo {
-    width: 100px;
-    height: 100px;
-  }
+    .timer-count {
+        font-size: 24px; /* Decrease timer count size */
+    }
 
-  .sponsor-container a img {
-    width: 80px;
-  }
-
-  .newsletter input {
-    width: 90%;
-  }
-
-  .social-links img {
-    width: 20px;
-  }
+    .field-logos {
+        flex-direction: column; /* Stack logos vertically */
+        align-items: center; /* Center logos */
+    }
 }
