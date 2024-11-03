@@ -1,39 +1,77 @@
 /* Base styles */
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  width: 100%;
+}
+
 body {
   font-family: Arial, sans-serif;
   color: #333;
   background-color: #fff7d4; /* Light cream background */
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
 }
+
+/*Nav Bar */
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
   background-color: #4c3d3d; /* Dark grey background */
+  width: 100%;
 }
 
 .logo img {
   height: 50px; /* Adjust the height as needed */
   width: auto; /* Keeps the aspect ratio */
+  margin-left: 10%;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  justify-content: space-around;
+}
+
+.link-container {
+  width: 50%;
 }
 
 .nav-links a {
   color: #ffd95a; /* Soft yellow text */
   text-decoration: none;
+  position: relative; /* Positioning context for the pseudo-element */
+  font-size: large;
 }
+
+.nav-links a::after {
+  content: ""; /* Create a pseudo-element */
+  position: absolute; /* Position it relative to the parent */
+  left: 0; /* Start at the left of the text */
+  bottom: 0; /* Position at the bottom */
+  width: 100%; /* Cover the full width of the text */
+  height: 2px; /* Height of the underline */
+  background: #ffd95a; /* Color of the underline */
+  transform: scaleX(0); /* Start with scale 0 (invisible) */
+  transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1); /* Scale to full width on hover */
+}
+
+/*Hero*/
 
 #hero {
   background-image: url("./images/monteball2.jpg"); /* Replace with actual background image */
   background-size: cover;
   height: 80vh;
+  width: inherit;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,7 +85,16 @@ nav {
   border: none;
   cursor: pointer;
   font-size: 1.2em;
+  transition: transform 0.3s ease-in;
 }
+
+.hero-button:hover {
+  background-color: #ff8c00; /* Darker shade of orange */
+  transition: background-color 0.3s ease;
+  transform: scale(1.1);
+}
+
+/* Field Logos */
 
 .field-logos {
   display: flex;
@@ -65,6 +112,10 @@ nav {
   text-align: center; /* Center text below logos */
 }
 
+.field-logo:hover {
+  transform: scale(1.05);
+}
+
 .field-logo a {
   text-decoration: none;
 }
@@ -73,6 +124,7 @@ nav {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain; /* Ensures image fits without distortion */
+  border-radius: 50%; /* Makes the image round */
 }
 
 .field-logo p {
@@ -81,13 +133,25 @@ nav {
   font-size: 14px; /* Adjust the font size as needed */
 }
 
+/* Timer Section */
+
 .timer-section {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 20px;
   background-color: #ffd95a; /* Soft yellow background */
   text-align: center;
 }
+
+.timer-text {
+  font-size: 24px;
+}
+
+.countdown-timer {
+  font-size: 24px;
+}
+
+/*Sponsor Section*/
 
 .sponsor-section {
   position: relative;
@@ -111,6 +175,7 @@ nav {
 .sponsor-container img {
   height: 50px; /* Adjust the height as needed */
   width: auto; /* Maintain aspect ratio */
+  border-radius: 50%;
 }
 
 /* Keyframes for scrolling animation */
@@ -123,9 +188,11 @@ nav {
   }
 }
 
+/*Contacts and Newsletter*/
+
 .contacts-newsletter {
   display: flex; /* Flexbox layout for alignment */
-  justify-content: space-between; /* Space out left and right sides */
+  justify-content: space-around; /* Space out left and right sides */
   padding: 20px; /* Padding for the section */
   background-color: #fff7d4; /* Light cream background */
 }
@@ -133,6 +200,7 @@ nav {
 .contact-info {
   display: flex; /* Flexbox for aligning logo and text */
   align-items: center; /* Center items vertically */
+  width: 50%;
 }
 
 .company-logo {
@@ -172,13 +240,20 @@ nav {
   color: #4c3d3d; /* Dark grey text color */
 }
 
+/* Footer */
+
 footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 20px;
   background-color: #4c3d3d; /* Dark grey background */
   flex-wrap: wrap;
+}
+
+.footer-text {
+  width: 50%;
+  text-align: center;
 }
 
 .social-links img {
@@ -187,68 +262,114 @@ footer {
   margin-left: 10px;
 }
 
+/* For Chrome, Safari, and Edge */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #ffd95a; /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffa500; /* Thumb color */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4c3d3d; /* Thumb color on hover */
+}
+
 /* Responsive styles for smaller screens */
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column; /* Stack items vertically on mobile */
-        align-items: center; /* Center align items */
-    }
+  /* Navigation */
+  nav {
+    flex-direction: column;
+    text-align: center;
+  }
 
-    .hero-section {
-        height: 250px; /* Smaller height for mobile */
-    }
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
 
-    .field-logos {
-        padding: 20px; /* Less padding on mobile */
-    }
+  /* Hero Section */
+  #hero {
+    height: 60vh;
+  }
 
-    .field-logo {
-        width: 120px; /* Smaller width for logos */
-    }
+  .hero-button {
+    font-size: 1em;
+  }
 
-    .timer-section {
-        padding: 20px; /* Less padding */
-        font-size: 18px; /* Adjust font size for mobile */
-    }
+  /* Field Logos */
+  .field-logos {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .contacts-newsletter {
-        flex-direction: column; /* Stack on mobile */
-        align-items: center; /* Center align */
-    }
+  .field-logo {
+    width: 120px;
+    height: 120px;
+  }
 
-    .contact-info {
-        flex-direction: column; /* Stack logo and text vertically */
-        align-items: center; /* Center align */
-        margin-bottom: 20px; /* Space below */
-    }
+  /* Timer Section */
+  .timer-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 
-    .company-logo {
-        width: 60px; /* Smaller logo size */
-        height: 60px; /* Smaller logo size */
-        margin-bottom: 10px; /* Space below logo */
-    }
+  /* Sponsors */
+  .sponsor-container {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .newsletter {
-        width: 100%; /* Full width for newsletter */
-        text-align: center; /* Center text */
-    }
+  /* Contact & Newsletter Section */
+  .contact-newsletter {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-    .newsletter input {
-        width: 80%; /* Adjust input width for mobile */
-    }
+  .newsletter input {
+    margin-bottom: 10px;
+    width: 80%;
+  }
+
+  .contact-info {
+    margin-top: 20px;
+  }
+
+  /* Footer */
+  footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 }
 
 @media (max-width: 480px) {
-    .timer-info {
-        font-size: 16px; /* Further decrease font size */
-    }
+  /* Further adjustments for very small screens */
+  .hero-button {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
 
-    .timer-count {
-        font-size: 24px; /* Decrease timer count size */
-    }
+  .field-logo {
+    width: 100px;
+    height: 100px;
+  }
 
-    .field-logos {
-        flex-direction: column; /* Stack logos vertically */
-        align-items: center; /* Center logos */
-    }
+  .sponsor-container a img {
+    width: 80px;
+  }
+
+  .newsletter input {
+    width: 90%;
+  }
+
+  .social-links img {
+    width: 20px;
+  }
 }
